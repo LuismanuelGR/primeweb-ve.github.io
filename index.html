@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIME-WEB | Portafolio Digital de Desarrollo & Programación Web</title>
+  <meta name="description"
+    content="En PRIME-WEB nos especializamos en la creación, diseño y mantenimiento de páginas web de alto impacto, totalmente adaptadas a las exigencias y objetivos de cada cliente.">
+  <meta name="keywords"
+    content="desarrollo web, programacion web, diseño web, landing page, tiendas online, mantenimiento web, soporte tecnico, PRIME-WEB">
+  <meta name="author" content="PRIME-WEB">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PRIME-WEB | Portafolio Digital de Desarrollo Web">
+  <meta property="og:description"
+    content="Soluciones integrales, modernas y a la medida. Transforma tus ideas en activos digitales eficaces.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="PRIME-WEB (Wallpaper).png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-blur ambient-1"></div>
+  <div class="ambient-blur ambient-2"></div>
+  <div class="ambient-blur ambient-3"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar-container" id="header">
+    <div class="navbar max-width-container">
+      <a href="#hero" class="brand-logo-link" aria-label="PRIME-WEB Inicio">
+        <!-- Logo automatically switches based on theme -->
+        <img id="brand-logo" src="PRIME-WEB LOGO (BLANCO).png" alt="PRIME-WEB Logo" class="nav-logo-img">
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Inicio</a></li>
+          <li><a href="#adn" class="nav-link"><i class="fa-solid fa-dna"></i> ADN</a></li>
+          <li><a href="#servicios" class="nav-link"><i class="fa-solid fa-layer-group"></i> Servicios</a></li>
+          <li><a href="#metodologia" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Metodología</a></li>
+          <li><a href="#portafolio" class="nav-link"><i class="fa-solid fa-briefcase"></i> Portafolio</a></li>
+          <li><a href="#cotizador" class="nav-link"><i class="fa-solid fa-calculator"></i> Cotizador</a></li>
+          <li><a href="#contacto" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Cambiar tema claro u oscuro"
+          title="Cambiar tema">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+          <span class="theme-btn-text">Modo Oscuro</span>
+        </button>
+
+        <!-- CTA Header Button -->
+        <a href="#cotizador" class="btn btn-primary btn-sm nav-cta-btn">
+          <span>Iniciar Proyecto</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Abrir menú de navegación">
+          <i class="fa-solid fa-bars icon-open"></i>
+          <i class="fa-solid fa-xmark icon-close"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section section-padding">
+      <div class="max-width-container hero-grid">
+        <div class="hero-content">
+          <div class="badge-pill animate-fade-in">
+            <span class="badge-dot"></span>
+            <span class="badge-text">Desarrollo Web de Alto Impacto</span>
+          </div>
+
+          <h1 class="hero-title animate-fade-in delay-1">
+            Transformamos Ideas en <span class="gradient-text">Activos Digitales</span> Funcionales y Seguros
+          </h1>
+
+          <p class="hero-description animate-fade-in delay-2">
+            En <strong>PRIME-WEB</strong> diseñamos, desarrollamos y mantenemos sitios web a medida, combinando
+            supervisión técnica constante, diseño creativo de vanguardia y soporte continuo para potenciar la presencia
+            digital de tu marca.
+          </p>
+
+          <div class="hero-actions animate-fade-in delay-3">
+            <a href="#portafolio" class="btn btn-primary btn-lg">
+              <span>Explorar Proyectos</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <a href="#cotizador" class="btn btn-glass btn-lg">
+              <i class="fa-solid fa-calculator"></i>
+              <span>Cotizar Proyecto</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics / KPIs -->
+          <div class="hero-stats animate-fade-in delay-4">
+            <div class="stat-card">
+              <span class="stat-number" data-target="10">10+</span>
+              <span class="stat-label">Proyectos Exitosos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <span class="stat-number">99.9%</span>
+              <span class="stat-label">Uptime & Rendimiento</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Código A Medida</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Soporte Continuo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero 3D Card / Showcase Image -->
+        <div class="hero-visual animate-fade-in delay-2">
+          <div class="hero-card-wrapper" id="hero-card">
+            <div class="glass-card hero-image-card">
+              <div class="card-header-bar">
+                <div class="window-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="window-title"><i class="fa-solid fa-shield-halved"></i> PRIME-WEB OS v2.0</div>
+                <div class="window-status"><span class="pulse-green"></span> En línea</div>
+              </div>
+
+              <div class="hero-img-container">
+                <img src="PRIME-WEB (Wallpaper).png" alt="PRIME-WEB Fondo de Pantalla Corporativo"
+                  class="hero-wallpaper-img">
+                <div class="hero-img-overlay"></div>
+
+                <div class="floating-badge badge-top-right">
+                  <i class="fa-solid fa-bolt text-accent"></i>
+                  <div>
+                    <strong>Carga Ultrarrápida</strong>
+                    <small>Optimizada para SEO & UX</small>
+                  </div>
+                </div>
+
+                <div class="floating-badge badge-bottom-left">
+                  <i class="fa-solid fa-lock text-accent"></i>
+                  <div>
+                    <strong>Seguridad Integral</strong>
+                    <small>Monitoreo Activo 24/7</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-footer-tags">
+                <span class="tech-pill"><i class="fa-brands fa-html5"></i> HTML5 Semántico</span>
+                <span class="tech-pill"><i class="fa-brands fa-css3-alt"></i> CSS3 & Glassmorphism</span>
+                <span class="tech-pill"><i class="fa-brands fa-js"></i> JavaScript ES6+</span>
+                <span class="tech-pill"><i class="fa-solid fa-mobile-screen"></i> Responsivo TV/Móvil</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS / ADN Y VALORES DE MARCA -->
+    <section id="adn" class="section-padding bg-section-alt">
+      <div class="max-width-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Identidad Corporativa</span>
+          <h2 class="section-title">El ADN y los Valores de <span class="gradient-text">PRIME-WEB</span></h2>
+          <p class="section-description">
+            Entendemos que cada proyecto es único, por lo que rechazamos las soluciones genéricas y apostamos por
+            desarrollos integrales, modernos y a la medida.
+          </p>
+        </div>
+
+        <!-- Propósito, Misión y Visión (3 Grid Cards) -->
+        <div class="adn-cards-grid">
+          <div class="glass-card adn-card">
+            <div class="adn-icon-box">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>Propósito</h3>
+            <p>
+              Transformar ideas y modelos de negocio en activos digitales funcionales, seguros y adaptados a las altas
+              exigencias del mercado digital actual.
+            </p>
+          </div>
+
+          <div class="glass-card adn-card feature-card">
+            <div class="adn-icon-box">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h3>Misión</h3>
+            <p>
+              Diseñar, desarrollar y mantener sitios web a medida, combinando supervisión técnica constante, diseño
+              creativo y soporte continuo para potenciar la presencia digital de cada marca.
+            </p>
+          </div>
+
+          <div class="glass-card adn-card">
+            <div class="adn-icon-box">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h3>Visión</h3>
+            <p>
+              Convertirse en el aliado tecnológico estratégico referente en desarrollo y soporte web continuo para
+              empresas y emprendedores en constante crecimiento.
+            </p>
+          </div>
+        </div>
+
+        <!-- Valores Fundamentales -->
+        <div class="valores-container margin-top-lg">
+          <h3 class="text-center sub-heading margin-bottom-md">Valores Fundamentales que Nos Definen</h3>
+
+          <div class="valores-grid">
+            <div class="valor-item glass-card">
+              <div class="valor-header">
+                <div class="valor-icon"><i class="fa-solid fa-code"></i></div>
+                <h4>Precisión Técnica</h4>
+              </div>
+              <p>Desarrollo estructurado con código limpio, alta velocidad de carga, estándares rigurosos de seguridad y
+                optimización técnica constante.</p>
+            </div>
+
+            <div class="valor-item glass-card">
+              <div class="valor-header">
+                <div class="valor-icon"><i class="fa-solid fa-sliders"></i></div>
+                <h4>Adaptabilidad</h4>
+              </div>
+              <p>Soluciones 100% personalizadas que responden directamente a las metas comerciales y etapas específicas
+                del negocio de cada cliente.</p>
+            </div>
+
+            <div class="valor-item glass-card">
+              <div class="valor-header">
+                <div class="valor-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <h4>Acompañamiento Continuo</h4>
+              </div>
+              <p>Soporte técnico activo y humano cercano antes, durante y después del lanzamiento oficial de tu
+                plataforma.</p>
+            </div>
+
+            <div class="valor-item glass-card">
+              <div class="valor-header">
+                <div class="valor-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h4>Creatividad Estratégica</h4>
+              </div>
+              <p>Estética visual atractiva con una interfaz (UI) e interacción (UX) diseñadas deliberadamente para
+                convertir visitantes en clientes leales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS CLAVE -->
+    <section id="servicios" class="section-padding">
+      <div class="max-width-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Soluciones Integrales</span>
+          <h2 class="section-title">Descripción de <span class="gradient-text">Servicios Clave</span></h2>
+          <p class="section-description">
+            Nuestro compromiso va más allá de la entrega de un sitio web: brindamos un acompañamiento integral
+            respaldado por una rigurosa supervisión técnica.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Servicio 1 -->
+          <div class="service-card glass-card">
+            <div class="service-number">01</div>
+            <div class="service-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3 class="service-title">Desarrollo y Diseño Web Personalizado</h3>
+            <p class="service-desc">
+              Sitios web únicos creados desde cero, alineados con la identidad visual y los objetivos comerciales de
+              cada cliente.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-circle-check"></i> Landing Pages de Alta Conversión</li>
+              <li><i class="fa-solid fa-circle-check"></i> Webs Corporativas Elegantes</li>
+              <li><i class="fa-solid fa-circle-check"></i> Tiendas Online (E-Commerce)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Diseño 100% Adaptativo y Responsivo</li>
+            </ul>
+            <a href="#cotizador" class="service-link">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Servicio 2 -->
+          <div class="service-card glass-card featured-service">
+            <div class="service-badge">Más Solicitado</div>
+            <div class="service-number">02</div>
+            <div class="service-icon">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <h3 class="service-title">Supervisión y Control Técnico</h3>
+            <p class="service-desc">
+              Monitoreo activo para asegurar máxima estabilidad, velocidad ultrarrápida y protección total de tus
+              activos digitales.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-circle-check"></i> Monitoreo Activo de Rendimiento</li>
+              <li><i class="fa-solid fa-circle-check"></i> Optimización de Velocidad & SEO</li>
+              <li><i class="fa-solid fa-circle-check"></i> Estándares de Seguridad Web Avanzada</li>
+              <li><i class="fa-solid fa-circle-check"></i> Respaldos Periódicos Automatizados</li>
+            </ul>
+            <a href="#cotizador" class="service-link">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Servicio 3 -->
+          <div class="service-card glass-card">
+            <div class="service-number">03</div>
+            <div class="service-icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 class="service-title">Soporte Técnico Continuo</h3>
+            <p class="service-desc">
+              Acompañamiento cercano post-lanzamiento para resolver cualquier incidencia y mantener la plataforma
+              siempre actualizada.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-circle-check"></i> Atención Cercana y Respuesta Rápida</li>
+              <li><i class="fa-solid fa-circle-check"></i> Resolución Inmediata de Incidencias</li>
+              <li><i class="fa-solid fa-circle-check"></i> Actualizaciones de Contenido y Software</li>
+              <li><i class="fa-solid fa-circle-check"></i> Mantención de Plataforma al Día</li>
+            </ul>
+            <a href="#cotizador" class="service-link">Cotizar este servicio <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODOLOGÍA DE TRABAJO -->
+    <section id="metodologia" class="section-padding bg-section-alt">
+      <div class="max-width-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Proceso Transparente</span>
+          <h2 class="section-title">Metodología de <span class="gradient-text">Trabajo</span></h2>
+          <p class="section-description">
+            Garantizamos la excelencia en cada fase del desarrollo a través de un flujo estructurado en 4 etapas
+            principales.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+
+          <!-- Step 1 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+            </div>
+            <div class="step-content glass-card">
+              <span class="step-tag">Paso 01</span>
+              <h3>Diagnóstico & Planificación</h3>
+              <p>Definición detallada de requerimientos, arquitectura de información y estructura hecha a medida según
+                los objetivos del negocio.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <i class="fa-solid fa-pen-ruler"></i>
+            </div>
+            <div class="step-content glass-card">
+              <span class="step-tag">Paso 02</span>
+              <h3>Diseño & Desarrollo</h3>
+              <p>Creación de prototipos visuales y programación funcional con rigurosa supervisión técnica y estándares
+                de código limpio.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <div class="step-content glass-card">
+              <span class="step-tag">Paso 03</span>
+              <h3>Optimización & Lanzamiento</h3>
+              <p>Pruebas de carga, auditoría de rendimiento, verificación de seguridad y puesta en marcha oficial sin
+                interrupciones.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <div class="step-content glass-card">
+              <span class="step-tag">Paso 04</span>
+              <h3>Mantenimiento Continuo</h3>
+              <p>Respaldos periódicos, supervisión de disponibilidad y soporte técnico activo para garantizar
+                continuidad operativa a largo plazo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTAFOLIO DE PROYECTOS HECHOS POR PRIME-WEB -->
+    <section id="portafolio" class="section-padding">
+      <div class="max-width-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Casos de Éxito</span>
+          <h2 class="section-title">Trabajos Hechos por <span class="gradient-text">PRIME-WEB</span></h2>
+          <p class="section-description">
+            Explora una selección de sitios y plataformas web desarrolladas con los más altos estándares de calidad,
+            seguridad y diseño.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="portfolio-filters text-center">
+          <button class="filter-btn active" data-filter="all">Todos los Proyectos (10)</button>
+          <button class="filter-btn" data-filter="corporativo">Webs Corporativas</button>
+          <button class="filter-btn" data-filter="ecommerce">Servicios & Comercio</button>
+          <button class="filter-btn" data-filter="plataforma">Plataformas & Sistemas</button>
+        </div>
+
+        <!-- Portfolio Cards Grid -->
+        <div class="portfolio-grid" id="portfolio-grid">
+
+          <!-- 1. PRIME-WEB Principal -->
+          <div class="portfolio-card glass-card" data-category="plataforma">
+            <div class="project-preview preview-gradient-1">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">primeweb-ve.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-cube project-mockup-icon"></i>
+                <div class="mockup-text-preview">PRIME-WEB</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-shield"></i> Portal Oficial</div>
+              <h3 class="project-title">PRIME-WEB</h3>
+              <p class="project-desc">Plataforma web oficial de desarrollo y programación, proyectando la identidad
+                tecnológica de la marca.</p>
+              <div class="project-tags">
+                <span>HTML5 / CSS3</span><span>JS ES6+</span><span>Branding</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://primeweb-ve.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="0">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Cerrajería García -->
+          <div class="portfolio-card glass-card" data-category="corporativo">
+            <div class="project-preview preview-gradient-2">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">cerrajeriagracia.primeweb-ve.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-key project-mockup-icon"></i>
+                <div class="mockup-text-preview">Cerrajería García</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-building"></i> Sitio Corporativo</div>
+              <h3 class="project-title">Cerrajería García</h3>
+              <p class="project-desc">Página corporativa optimizada para conversión directa y atención rápida de
+                urgencias de cerrajería.</p>
+              <div class="project-tags">
+                <span>Landing Page</span><span>Fast Load</span><span>Contacto Directo</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://cerrajeriagracia.primeweb-ve.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="1">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Disco Óptico Plus -->
+          <div class="portfolio-card glass-card" data-category="ecommerce">
+            <div class="project-preview preview-gradient-3">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">discoopticoplus.primeweb-ve.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-glasses project-mockup-icon"></i>
+                <div class="mockup-text-preview">Disco Óptico Plus</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-store"></i> Servicios Ópticos</div>
+              <h3 class="project-title">Disco Óptico Plus</h3>
+              <p class="project-desc">Catálogo digital moderno y plataforma comercial de servicios de salud visual y
+                distribución óptica.</p>
+              <div class="project-tags">
+                <span>Catálogo Web</span><span>UI/UX Limpia</span><span>Responsive</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://discoopticoplus.primeweb-ve.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="2">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Golden Hands -->
+          <div class="portfolio-card glass-card" data-category="corporativo">
+            <div class="project-preview preview-gradient-4">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">goldenhands.primeweb-ve.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-hands-holding-circle project-mockup-icon"></i>
+                <div class="mockup-text-preview">Golden Hands</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-briefcase"></i> Servicios Profesionales</div>
+              <h3 class="project-title">Golden Hands</h3>
+              <p class="project-desc">Plataforma institucional de servicios especializados con diseño distinguido y
+                estructura intuitiva.</p>
+              <div class="project-tags">
+                <span>Corporate Design</span><span>Optimizado</span><span>Contacto</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://goldenhands.primeweb-ve.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="3">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. ICER -->
+          <div class="portfolio-card glass-card" data-category="plataforma">
+            <div class="project-preview preview-gradient-5">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">icervzla.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-graduation-cap project-mockup-icon"></i>
+                <div class="mockup-text-preview">ICER Venezuela</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-landmark"></i> Institucional</div>
+              <h3 class="project-title">ICER</h3>
+              <p class="project-desc">Portal web institucional con estructuración clara de programas, formación y
+                atención al público.</p>
+              <div class="project-tags">
+                <span>Web Institucional</span><span>Alta Disponibilidad</span><span>SEO</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://icervzla.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="4">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Iglesys -->
+          <div class="portfolio-card glass-card" data-category="plataforma">
+            <div class="project-preview preview-gradient-6">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">iglesys.primeweb-ve.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-church project-mockup-icon"></i>
+                <div class="mockup-text-preview">Iglesys System</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-user-shield"></i> Sistema de Gestión</div>
+              <h3 class="project-title">Iglesys</h3>
+              <p class="project-desc">Sistema de autenticación y gestión de usuarios para organizaciones con alta
+                seguridad y control.</p>
+              <div class="project-tags">
+                <span>Portal Login</span><span>Seguridad Web</span><span>Gestión</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://iglesys.primeweb-ve.com/login.html" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="5">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Swappealo -->
+          <div class="portfolio-card glass-card" data-category="plataforma">
+            <div class="project-preview preview-gradient-7">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">swappealo.primeweb-ve.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-rotate project-mockup-icon"></i>
+                <div class="mockup-text-preview">Swappealo</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-arrow-right-arrow-left"></i> Plataforma Web</div>
+              <h3 class="project-title">Swappealo</h3>
+              <p class="project-desc">Plataforma interactiva moderna orientada a la economía circular e intercambio
+                digital.</p>
+              <div class="project-tags">
+                <span>Web App</span><span>UI Dinámica</span><span>Interactivo</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://swappealo.primeweb-ve.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="6">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. UJEV -->
+          <div class="portfolio-card glass-card" data-category="corporativo">
+            <div class="project-preview preview-gradient-8">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">ujevr4.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-layer-group project-mockup-icon"></i>
+                <div class="mockup-text-preview">UJEV Portal</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-globe"></i> Portal Institucional</div>
+              <h3 class="project-title">UJEV</h3>
+              <p class="project-desc">Sitio web corporativo de comunicación y presencia oficial institucional altamente
+                optimizado.</p>
+              <div class="project-tags">
+                <span>Web Corporativa</span><span>Carga Eficiente</span><span>Responsive</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://ujevr4.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="7">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Vida UNITEC -->
+          <div class="portfolio-card glass-card" data-category="corporativo">
+            <div class="project-preview preview-gradient-9">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">vidaunitec.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-users-line project-mockup-icon"></i>
+                <div class="mockup-text-preview">Vida UNITEC</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-user-graduate"></i> Comunidad & Educación</div>
+              <h3 class="project-title">Vida UNITEC</h3>
+              <p class="project-desc">Portal enfocado en actividades, experiencias comunitarias y vida universitaria
+                integrativa.</p>
+              <div class="project-tags">
+                <span>Portal Educativo</span><span>Experiencia UX</span><span>SEO</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://vidaunitec.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="8">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Zafirosmen -->
+          <div class="portfolio-card glass-card" data-category="ecommerce">
+            <div class="project-preview preview-gradient-10">
+              <div class="project-mockup-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">zafirosmen.primeweb-ve.com</span>
+              </div>
+              <div class="project-mockup-body">
+                <i class="fa-solid fa-scissors project-mockup-icon"></i>
+                <div class="mockup-text-preview">Zafirosmen</div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category"><i class="fa-solid fa-scissors"></i> Barbería & Cuidado Personal</div>
+              <h3 class="project-title">Zafirosmen</h3>
+              <p class="project-desc">Sitio web elegante para salón de estética masculina, reserva de citas y
+                presentación de servicios.</p>
+              <div class="project-tags">
+                <span>Estética Masculina</span><span>Citas Directas</span><span>Estilo Premium</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://zafirosmen.primeweb-ve.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary">
+                  <span>Visitar Sitio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <button class="btn btn-sm btn-glass open-modal-btn" data-project="9">
+                  <i class="fa-solid fa-eye"></i> Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COTIZADOR INTERACTIVO DE PROYECTOS -->
+    <section id="cotizador" class="section-padding bg-section-alt">
+      <div class="max-width-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Planifica Tu Inversión</span>
+          <h2 class="section-title">Cotizador Interactivo de <span class="gradient-text">Proyectos</span></h2>
+          <p class="section-description">
+            Selecciona las características de tu proyecto para obtener una estimación aproximada en tiempo real y enviar
+            la solicitud a nuestro equipo.
+          </p>
+        </div>
+
+        <div class="calculator-wrapper glass-card">
+          <div class="calculator-grid">
+            <div class="calculator-options">
+
+              <!-- Option 1: Tipo de Proyecto -->
+              <div class="calc-group">
+                <label class="calc-label"><i class="fa-solid fa-code-branch text-accent"></i> 1. Tipo de Proyecto
+                  Web</label>
+                <div class="calc-radio-group">
+                  <label class="calc-radio-card active">
+                    <input type="radio" name="project-type" value="landing" data-price="250" data-time="5 - 7 días"
+                      checked>
+                    <div class="radio-content">
+                      <i class="fa-solid fa-rocket"></i>
+                      <strong>Landing Page</strong>
+                      <small>Página única de alta conversión</small>
+                    </div>
+                  </label>
+
+                  <label class="calc-radio-card">
+                    <input type="radio" name="project-type" value="corporate" data-price="450" data-time="10 - 15 días">
+                    <div class="radio-content">
+                      <i class="fa-solid fa-building"></i>
+                      <strong>Web Corporativa</strong>
+                      <small>Multipágina profesional completa</small>
+                    </div>
+                  </label>
+
+                  <label class="calc-radio-card">
+                    <input type="radio" name="project-type" value="ecommerce" data-price="700" data-time="15 - 25 días">
+                    <div class="radio-content">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                      <strong>Tienda Online</strong>
+                      <small>E-Commerce con catálogo y pagos</small>
+                    </div>
+                  </label>
+
+                  <label class="calc-radio-card">
+                    <input type="radio" name="project-type" value="custom" data-price="950" data-time="20 - 30+ días">
+                    <div class="radio-content">
+                      <i class="fa-solid fa-gears"></i>
+                      <strong>Sistema a Medida</strong>
+                      <small>Plataforma SaaS o portal privado</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Option 2: Addons / Servicios Adicionales -->
+              <div class="calc-group margin-top-md">
+                <label class="calc-label"><i class="fa-solid fa-shield-halved text-accent"></i> 2. Servicios Adicionales
+                  y Mantenimiento</label>
+                <div class="calc-checkbox-group">
+                  <label class="calc-checkbox-card">
+                    <input type="checkbox" id="addon-seo" data-price="120" checked>
+                    <div class="checkbox-content">
+                      <span><i class="fa-solid fa-chart-line text-accent"></i> Optimización SEO & Velocidad</span>
+                      <strong>+$120 USD</strong>
+                    </div>
+                  </label>
+
+                  <label class="calc-checkbox-card">
+                    <input type="checkbox" id="addon-support" data-price="150" checked>
+                    <div class="checkbox-content">
+                      <span><i class="fa-solid fa-headset text-accent"></i> Soporte Continuo & Mantenimiento (3
+                        meses)</span>
+                      <strong>+$150 USD</strong>
+                    </div>
+                  </label>
+
+                  <label class="calc-checkbox-card">
+                    <input type="checkbox" id="addon-security" data-price="90">
+                    <div class="checkbox-content">
+                      <span><i class="fa-solid fa-lock text-accent"></i> Certificado SSL & Blindaje de Seguridad</span>
+                      <strong>+$90 USD</strong>
+                    </div>
+                  </label>
+
+                  <label class="calc-checkbox-card">
+                    <input type="checkbox" id="addon-lang" data-price="100">
+                    <div class="checkbox-content">
+                      <span><i class="fa-solid fa-language text-accent"></i> Sistema Multilenguaje (Español /
+                        Inglés)</span>
+                      <strong>+$100 USD</strong>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Summary Box -->
+            <div class="calculator-summary glass-card">
+              <h3>Resumen de Cotización</h3>
+              <div class="summary-divider"></div>
+
+              <div class="summary-details">
+                <div class="summary-row">
+                  <span>Tipo de Proyecto:</span>
+                  <strong id="sum-project-name">Landing Page</strong>
+                </div>
+                <div class="summary-row">
+                  <span>Tiempo estimado:</span>
+                  <strong id="sum-project-time">5 - 7 días</strong>
+                </div>
+                <div class="summary-row">
+                  <span>Supervisión Técnica:</span>
+                  <strong class="text-accent">Incluida</strong>
+                </div>
+                <div class="summary-row">
+                  <span>Código Limpio & A Medida:</span>
+                  <strong class="text-accent">100% Garantizado</strong>
+                </div>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-total">
+                <span>Inversión Estimada:</span>
+                <div class="total-price-box">
+                  <span class="price-currency">$</span>
+                  <span id="calc-total-price" class="price-value">520</span>
+                  <span class="price-code">USD</span>
+                </div>
+                <small class="total-note">*Precio referencial adaptado según requerimientos finales</small>
+              </div>
+
+              <div class="summary-actions">
+                <button id="send-whatsapp-btn" class="btn btn-whatsapp btn-block">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>Enviar Cotización a WhatsApp</span>
+                </button>
+                <a href="#contacto" class="btn btn-glass btn-block">
+                  <i class="fa-solid fa-envelope"></i>
+                  <span>Solicitar Propuesta por Email</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="section-padding">
+      <div class="max-width-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Resolvemos Tus Dudas</span>
+          <h2 class="section-title">Preguntas <span class="gradient-text">Frecuentes</span></h2>
+          <p class="section-description">
+            Respuestas claras sobre nuestros servicios, tiempos de entrega y metodología de soporte continuo.
+          </p>
+        </div>
+
+        <div class="faq-accordion-container">
+          <div class="faq-item glass-card">
+            <button class="faq-question">
+              <span>¿Qué incluye el desarrollo web a medida en PRIME-WEB?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Incluye diseño visual personalizado desde cero, maquetación con código limpio, arquitectura optimizada
+                para dispositivos móviles y TVs, integración de formularios de contacto, optimización de velocidad de
+                carga y estándares de seguridad web.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button class="faq-question">
+              <span>¿En qué consiste el Soporte Técnico Continuo y Mantenimiento?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Brindamos monitoreo activo de rendimiento, respaldos periódicos de la plataforma, actualización de
+                componentes, corrección preventiva y atención directa a incidencias post-lanzamiento para que tu web
+                opere sin interrupciones.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button class="faq-question">
+              <span>¿El sitio web será responsive y funcional en Smart TVs y celulares?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>¡Absolutamente! Todos nuestros desarrollos utilizan tipografía fluida y layouts responsivos probados en
+                pantallas desde teléfonos móviles de 320px hasta monitores Ultra-wide y Smart TVs 4K con navegación
+                mediante teclado o puntero.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button class="faq-question">
+              <span>¿Puedo ver ejemplos de sitios web creados por PRIME-WEB?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Sí, en nuestra sección de Portafolio dispones de 10 casos reales (Cerrajería García, Disco Óptico Plus,
+                Golden Hands, ICER, Iglesys, Swappealo, UJEV, Vida UNITEC, Zafirosmen y nuestro portal oficial) con
+                enlaces directos para visitar cada proyecto activo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section-padding bg-section-alt">
+      <div class="max-width-container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Hablemos de Tu Proyecto</span>
+          <h2 class="section-title">Ponte en <span class="gradient-text">Contacto</span></h2>
+          <p class="section-description">
+            Estamos listos para ser tu aliado tecnológico estratégico. Escríbenos y te responderemos a la brevedad.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info Cards -->
+          <div class="contact-info-column">
+            <div class="contact-card glass-card">
+              <div class="contact-icon"><i class="fa-solid fa-comments"></i></div>
+              <div class="contact-text">
+                <h4>Atención Inmediata</h4>
+                <p>Escríbenos directamente por WhatsApp para atención rápida.</p>
+                <a href="https://wa.me/?text=Hola%20PRIME-WEB,%20deseo%20informaci%C3%B3n%20sobre%20sus%20servicios%20web"
+                  target="_blank" class="contact-direct-link text-accent">Enviar WhatsApp ↗</a>
+              </div>
+            </div>
+
+            <div class="contact-card glass-card">
+              <div class="contact-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+              <div class="contact-text">
+                <h4>Correo Electrónico</h4>
+                <p>Envíanos tus consultas técnicas o requerimientos del proyecto.</p>
+                <a href="mailto:primewebpw@gmail.com" class="contact-direct-link text-accent">primewebpw@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-card glass-card">
+              <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="contact-text">
+                <h4>Horario & Monitoreo</h4>
+                <p>Desarrollo y supervisión técnica activa de lunes a sábado.</p>
+                <span>Monitoreo de servidores 24/7</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-column glass-card">
+            <h3>Envíanos un Mensaje</h3>
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="form-name">Nombre Completo</label>
+                <input type="text" id="form-name" placeholder="Ej. Carlos Mendoza" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email">Correo Electrónico</label>
+                <input type="email" id="form-email" placeholder="ejemplo@empresa.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-service">Servicio de Interés</label>
+                <select id="form-service">
+                  <option value="Desarrollo Web Personalizado">Desarrollo Web Personalizado</option>
+                  <option value="Supervisión y Control Técnico">Supervisión y Control Técnico</option>
+                  <option value="Soporte Técnico Continuo">Soporte Técnico Continuo</option>
+                  <option value="Cotización Completa">Cotización Completa</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message">Mensaje / Detalle del Proyecto</label>
+                <textarea id="form-message" rows="4" placeholder="Describe brevemente tus objetivos..."
+                  required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                <span>Enviar Solicitud</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+
+              <div id="form-status-msg" class="form-status-msg"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-container">
+    <div class="max-width-container footer-content">
+      <div class="footer-brand">
+        <a href="#hero">
+          <img id="footer-logo" src="PRIME-WEB LOGO (BLANCO).png" alt="PRIME-WEB Logo Footer" class="footer-logo-img">
+        </a>
+        <p class="footer-tagline">
+          Especializados en la creación, diseño y mantenimiento de páginas web de alto impacto. Desarrollos integrales,
+          modernos y a la medida.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navegación Rápida</h4>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#adn">ADN y Valores</a></li>
+          <li><a href="#servicios">Servicios Clave</a></li>
+          <li><a href="#metodologia">Metodología</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#cotizador">Cotizador</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-tech">
+        <h4>Garantía de Calidad</h4>
+        <div class="quality-badges">
+          <span class="quality-pill"><i class="fa-solid fa-shield-check"></i> Código Limpio</span>
+          <span class="quality-pill"><i class="fa-solid fa-bolt"></i> Carga Rápida</span>
+          <span class="quality-pill"><i class="fa-solid fa-tv"></i> Compatible con TV</span>
+          <span class="quality-pill"><i class="fa-solid fa-headset"></i> Soporte Activo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom text-center">
+      <div class="max-width-container footer-bottom-flex">
+        <p>&copy; 2026 PRIME-WEB Programación. Todos los derechos reservados.</p>
+        <p class="tv-hint"><i class="fa-solid fa-circle-info"></i> Diseñado para visualización óptima en Móviles,
+          Laptops y Smart TVs.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div id="project-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card glass-card">
+      <button id="close-modal-btn" class="close-modal-btn" aria-label="Cerrar modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-body" id="modal-content">
+        <!-- Dynamically injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
