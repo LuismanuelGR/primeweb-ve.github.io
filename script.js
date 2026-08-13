@@ -112,6 +112,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* --------------------------------------------------------------------------
+     OPTIMIZADO: SCROLL REVEAL OBSERVER (Carga Fluida en Móviles)
+     -------------------------------------------------------------------------- */
+  const revealElements = document.querySelectorAll(
+    '.adn-card, .valor-item, .service-card, .timeline-step, .portfolio-card, .calc-radio-card, .faq-item, .contact-card, .contact-form-column, .section-header'
+  );
+
+  revealElements.forEach(el => {
+    el.classList.add('reveal-on-scroll');
+  });
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          // Dejar de observar para ahorrar recursos en procesadores móviles
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px 80px 0px', // Anticipa la aparición 80px antes de llegar para evitar retrasos
+      threshold: 0.02
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('revealed'));
+  }
+
+
+  /* --------------------------------------------------------------------------
      3. 3D HERO CARD TILT EFFECT
      -------------------------------------------------------------------------- */
   const heroCard = document.getElementById('hero-card');
@@ -382,26 +414,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* --------------------------------------------------------------------------
-     7. CONTACT FORM SUBMISSION HANDLER
+     7. CONTACT FORM SUBMISSION HANDLER (Envío Real de Correos a primewebpw@gmail.com)
      -------------------------------------------------------------------------- */
   const contactForm = document.getElementById('contact-form');
   const formStatusMsg = document.getElementById('form-status-msg');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('form-name').value;
+      const nameInput = document.getElementById('form-name');
+      const emailInput = document.getElementById('form-email');
+      const serviceInput = document.getElementById('form-service');
+      const messageInput = document.getElementById('form-message');
+
+      const name = nameInput ? nameInput.value : '';
+      const email = emailInput ? emailInput.value : '';
+      const service = serviceInput ? serviceInput.value : '';
+      const message = messageInput ? messageInput.value : '';
+
+      // Visual State: Submitting
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Enviando...</span> <i class="fa-solid fa-spinner fa-spin"></i>`;
+      }
 
       if (formStatusMsg) {
-        formStatusMsg.className = 'form-status-msg success';
-        formStatusMsg.innerHTML = `<i class="fa-solid fa-circle-check"></i> ¡Gracias, ${name}! Tu solicitud ha sido registrada con éxito. Te contactaremos en breve.`;
+        formStatusMsg.className = 'form-status-msg';
+        formStatusMsg.style.color = 'var(--accent-cyan)';
+        formStatusMsg.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Enviando solicitud a primewebpw@gmail.com...`;
+      }
 
+      try {
+        // FormSubmit AJAX Endpoint
+        const response = await fetch('https://formsubmit.co/ajax/primewebpw@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `Nueva Solicitud de Cotización de ${name} - PRIME-WEB`,
+            _captcha: 'false',
+            Nombre: name,
+            Email: email,
+            Servicio_de_Interes: service,
+            Mensaje: message
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok || data.success === "true" || data.success === true) {
+          if (formStatusMsg) {
+            formStatusMsg.className = 'form-status-msg success';
+            formStatusMsg.style.color = 'var(--green-pulse)';
+            formStatusMsg.innerHTML = `<i class="fa-solid fa-circle-check"></i> ¡Excelente, ${name}! Tu solicitud se envió directamente a <strong>primewebpw@gmail.com</strong>. Te responderemos muy pronto.`;
+          }
+          contactForm.reset();
+        } else {
+          throw new Error('Respuesta no exitosa de FormSubmit');
+        }
+      } catch (error) {
+        console.warn('Fallback a apertura mailto por error de red en FormSubmit:', error);
+
+        // Fallback: Launch default email app with prefilled body
+        const mailSubject = encodeURIComponent(`Solicitud de Proyecto: ${name} (${service})`);
+        const mailBody = encodeURIComponent(`Hola PRIME-WEB,\n\nNombre: ${name}\nCorreo: ${email}\nServicio de Interés: ${service}\n\nMensaje:\n${message}\n\nSaludos.`);
+        
+        window.location.href = `mailto:primewebpw@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+        if (formStatusMsg) {
+          formStatusMsg.className = 'form-status-msg success';
+          formStatusMsg.style.color = 'var(--green-pulse)';
+          formStatusMsg.innerHTML = `<i class="fa-solid fa-envelope-circle-check"></i> Abriendo tu cliente de correo para enviar a <strong>primewebpw@gmail.com</strong>. ¡Gracias, ${name}!`;
+        }
         contactForm.reset();
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `<span>Enviar Solicitud</span> <i class="fa-solid fa-paper-plane"></i>`;
+        }
 
         setTimeout(() => {
-          formStatusMsg.innerHTML = '';
-        }, 5000);
+          if (formStatusMsg) formStatusMsg.innerHTML = '';
+        }, 8000);
       }
     });
   }
