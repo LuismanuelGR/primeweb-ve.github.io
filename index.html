@@ -1036,20 +1036,25 @@
           <!-- Contact Form -->
           <div class="contact-form-column glass-card">
             <h3>Envíanos un Mensaje</h3>
-            <form id="contact-form" class="contact-form">
+            <form id="contact-form" class="contact-form" action="https://formsubmit.co/primewebpw@gmail.com" method="POST">
+              <!-- Configuración FormSubmit para entrega directa a primewebpw@gmail.com -->
+              <input type="hidden" name="_subject" value="Nueva Solicitud de Proyecto - PRIME-WEB">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+
               <div class="form-group">
                 <label for="form-name">Nombre Completo</label>
-                <input type="text" id="form-name" placeholder="Ej. Carlos Mendoza" required>
+                <input type="text" id="form-name" name="Nombre" placeholder="Ej. Carlos Mendoza" required>
               </div>
 
               <div class="form-group">
                 <label for="form-email">Correo Electrónico</label>
-                <input type="email" id="form-email" placeholder="ejemplo@empresa.com" required>
+                <input type="email" id="form-email" name="Email" placeholder="ejemplo@empresa.com" required>
               </div>
 
               <div class="form-group">
                 <label for="form-service">Servicio de Interés</label>
-                <select id="form-service">
+                <select id="form-service" name="Servicio_de_Interes">
                   <option value="Desarrollo Web Personalizado">Desarrollo Web Personalizado</option>
                   <option value="Supervisión y Control Técnico">Supervisión y Control Técnico</option>
                   <option value="Soporte Técnico Continuo">Soporte Técnico Continuo</option>
@@ -1059,7 +1064,7 @@
 
               <div class="form-group">
                 <label for="form-message">Mensaje / Detalle del Proyecto</label>
-                <textarea id="form-message" rows="4" placeholder="Describe brevemente tus objetivos..."
+                <textarea id="form-message" name="Mensaje" rows="4" placeholder="Describe brevemente tus objetivos..."
                   required></textarea>
               </div>
 
