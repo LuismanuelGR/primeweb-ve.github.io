@@ -1,11 +1,302 @@
 /* ==========================================================================
    PRIME-WEB PORTFOLIO DIGITAL - JAVASCRIPT LOGIC
-   Features: Dark/Light Mode Switcher with Logo Swapping, 3D Hero Card Tilt,
+   Features: Dark/Light Mode Switcher with Logo Swapping, Animated Code Carousel,
    Portfolio Filter, Project Modal, Interactive Budget Calculator, FAQ Accordion,
    and Responsive Navigation.
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   CODE CAROUSEL ENGINE - Carrusel Animado de Código (Typewriter Effect)
+   -------------------------------------------------------------------------- */
+
+const CODE_SLIDES = [
+  {
+    lang: 'HTML5',
+    langIcon: '<i class="fa-brands fa-html5" style="color:#e44d26"></i>',
+    lines: [
+      `<span class="tok-comment">&lt;!-- 🌐 PRIME-WEB · Landing Page --&gt;</span>`,
+      `<span class="tok-tag">&lt;section</span> <span class="tok-attr">class</span>=<span class="tok-str">"hero-section"</span><span class="tok-tag">&gt;</span>`,
+      `  <span class="tok-tag">&lt;div</span> <span class="tok-attr">class</span>=<span class="tok-str">"container"</span><span class="tok-tag">&gt;</span>`,
+      `    <span class="tok-tag">&lt;h1</span> <span class="tok-attr">class</span>=<span class="tok-str">"hero-title"</span><span class="tok-tag">&gt;</span>`,
+      `      Transforma tu <span class="tok-tag">&lt;span</span> <span class="tok-attr">class</span>=<span class="tok-str">"accent"</span><span class="tok-tag">&gt;</span>`,
+      `        Presencia Digital`,
+      `      <span class="tok-tag">&lt;/span&gt;</span>`,
+      `    <span class="tok-tag">&lt;/h1&gt;</span>`,
+      `    <span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-str">"hero-desc"</span><span class="tok-tag">&gt;</span>`,
+      `      Sitios modernos, rápidos y seguros.`,
+      `    <span class="tok-tag">&lt;/p&gt;</span>`,
+      `    <span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-str">"#contacto"</span>`,
+      `       <span class="tok-attr">class</span>=<span class="tok-str">"btn btn-primary"</span><span class="tok-tag">&gt;</span>`,
+      `      Iniciar Proyecto ✨`,
+      `    <span class="tok-tag">&lt;/a&gt;</span>`,
+      `  <span class="tok-tag">&lt;/div&gt;</span>`,
+      `<span class="tok-tag">&lt;/section&gt;</span>`,
+    ]
+  },
+  {
+    lang: 'CSS3',
+    langIcon: '<i class="fa-brands fa-css3-alt" style="color:#264de4"></i>',
+    lines: [
+      `<span class="tok-comment">/* 🎨 PRIME-WEB · Design System */</span>`,
+      `<span class="tok-selector">:root</span> <span class="tok-punct">{</span>`,
+      `  <span class="tok-property">--accent</span><span class="tok-punct">:</span>  <span class="tok-css-value">#00f0ff</span><span class="tok-punct">;</span>`,
+      `  <span class="tok-property">--bg</span><span class="tok-punct">:</span>      <span class="tok-css-value">#0d1117</span><span class="tok-punct">;</span>`,
+      `  <span class="tok-property">--radius</span><span class="tok-punct">:</span>  <span class="tok-unit">16px</span><span class="tok-punct">;</span>`,
+      `<span class="tok-punct">}</span>`,
+      ``,
+      `<span class="tok-selector">.glass-card</span> <span class="tok-punct">{</span>`,
+      `  <span class="tok-property">background</span><span class="tok-punct">:</span> <span class="tok-css-value">rgba(255,255,255,.08)</span><span class="tok-punct">;</span>`,
+      `  <span class="tok-property">backdrop-filter</span><span class="tok-punct">:</span> <span class="tok-css-value">blur(<span class="tok-unit">16px</span>)</span><span class="tok-punct">;</span>`,
+      `  <span class="tok-property">border</span><span class="tok-punct">:</span> <span class="tok-unit">1px</span> <span class="tok-css-value">solid rgba(255,255,255,.1)</span><span class="tok-punct">;</span>`,
+      `  <span class="tok-property">border-radius</span><span class="tok-punct">:</span> <span class="tok-css-value">var(<span class="tok-var">--radius</span>)</span><span class="tok-punct">;</span>`,
+      `  <span class="tok-property">transition</span><span class="tok-punct">:</span> <span class="tok-css-value">all</span> <span class="tok-unit">.35s</span> <span class="tok-css-value">ease</span><span class="tok-punct">;</span>`,
+      `<span class="tok-punct">}</span>`,
+      ``,
+      `<span class="tok-selector">.glass-card:hover</span> <span class="tok-punct">{</span>`,
+      `  <span class="tok-property">transform</span><span class="tok-punct">:</span> <span class="tok-css-value">translateY(<span class="tok-unit">-4px</span>)</span><span class="tok-punct">;</span>`,
+      `<span class="tok-punct">}</span>`,
+    ]
+  },
+  {
+    lang: 'JavaScript',
+    langIcon: '<i class="fa-brands fa-js" style="color:#f7df1e"></i>',
+    lines: [
+      `<span class="tok-comment">// 🚀 PRIME-WEB · App Module</span>`,
+      `<span class="tok-keyword">const</span> <span class="tok-var">app</span> <span class="tok-punct">=</span> <span class="tok-punct">{</span>`,
+      ``,
+      `  <span class="tok-fn">init</span><span class="tok-punct">() {</span>`,
+      `    <span class="tok-keyword">this</span><span class="tok-punct">.</span><span class="tok-fn">launchAnimations</span><span class="tok-punct">();</span>`,
+      `    <span class="tok-keyword">this</span><span class="tok-punct">.</span><span class="tok-fn">bindEvents</span><span class="tok-punct">();</span>`,
+      `  <span class="tok-punct">},</span>`,
+      ``,
+      `  <span class="tok-fn">launchAnimations</span><span class="tok-punct">() {</span>`,
+      `    <span class="tok-keyword">const</span> <span class="tok-var">elements</span> <span class="tok-punct">=</span>`,
+      `      document<span class="tok-punct">.</span><span class="tok-fn">querySelectorAll</span><span class="tok-punct">(</span><span class="tok-js-str">'.reveal'</span><span class="tok-punct">);</span>`,
+      `    <span class="tok-keyword">const</span> <span class="tok-var">io</span> <span class="tok-punct">=</span> <span class="tok-keyword">new</span> <span class="tok-fn">IntersectionObserver</span><span class="tok-punct">(</span>`,
+      `      <span class="tok-var">entries</span> <span class="tok-keyword">=&gt;</span> <span class="tok-var">entries</span><span class="tok-punct">.</span><span class="tok-fn">forEach</span><span class="tok-punct">(</span>`,
+      `        <span class="tok-var">e</span> <span class="tok-keyword">=&gt;</span> <span class="tok-var">e</span><span class="tok-punct">.</span><span class="tok-var">isIntersecting</span>`,
+      `          <span class="tok-punct">&amp;&amp;</span> <span class="tok-var">e</span><span class="tok-punct">.</span><span class="tok-var">target</span><span class="tok-punct">.</span><span class="tok-var">classList</span>`,
+      `              <span class="tok-punct">.</span><span class="tok-fn">add</span><span class="tok-punct">(</span><span class="tok-js-str">'visible'</span><span class="tok-punct">)));</span>`,
+      `    <span class="tok-var">elements</span><span class="tok-punct">.</span><span class="tok-fn">forEach</span><span class="tok-punct">(</span><span class="tok-var">el</span> <span class="tok-keyword">=&gt;</span> <span class="tok-var">io</span><span class="tok-punct">.</span><span class="tok-fn">observe</span><span class="tok-punct">(</span><span class="tok-var">el</span><span class="tok-punct">));</span>`,
+      `  <span class="tok-punct">},</span>`,
+      `<span class="tok-punct">};</span>`,
+      ``,
+      `app<span class="tok-punct">.</span><span class="tok-fn">init</span><span class="tok-punct">();</span>`,
+    ]
+  },
+  {
+    lang: 'SQL / PHP',
+    langIcon: '<i class="fa-solid fa-database" style="color:#00758f"></i>',
+    lines: [
+      `<span class="tok-comment">&lt;?php // 🔒 PRIME-WEB · API Endpoint</span>`,
+      `<span class="tok-keyword">class</span> <span class="tok-fn">ProjectAPI</span> <span class="tok-punct">{</span>`,
+      `  <span class="tok-keyword">public function</span> <span class="tok-fn">getProjects</span><span class="tok-punct">(): array {</span>`,
+      `    <span class="tok-keyword">$query</span> <span class="tok-punct">=</span> <span class="tok-js-str"><<<SQL`,
+      `      SELECT id, name, url,`,
+      `             category, status`,
+      `      FROM   projects`,
+      `      WHERE  status = 'active'`,
+      `      ORDER  BY created_at DESC`,
+      `      LIMIT  :limit`,
+      `    SQL</span><span class="tok-punct">;</span>`,
+      `    <span class="tok-keyword">$stmt</span> <span class="tok-punct">=</span> <span class="tok-keyword">$this</span><span class="tok-punct">-&gt;</span><span class="tok-var">db</span>`,
+      `                 <span class="tok-punct">-&gt;</span><span class="tok-fn">prepare</span><span class="tok-punct">(</span><span class="tok-keyword">$query</span><span class="tok-punct">);</span>`,
+      `    <span class="tok-keyword">$stmt</span><span class="tok-punct">-&gt;</span><span class="tok-fn">bindValue</span><span class="tok-punct">(</span>`,
+      `      <span class="tok-js-str">':limit'</span><span class="tok-punct">,</span> <span class="tok-num">10</span><span class="tok-punct">, PDO::PARAM_INT);</span>`,
+      `    <span class="tok-keyword">$stmt</span><span class="tok-punct">-&gt;</span><span class="tok-fn">execute</span><span class="tok-punct">();</span>`,
+      `    <span class="tok-keyword">return</span> <span class="tok-keyword">$stmt</span><span class="tok-punct">-&gt;</span><span class="tok-fn">fetchAll</span><span class="tok-punct">();</span>`,
+      `  <span class="tok-punct">}</span>`,
+      `<span class="tok-punct">}</span>`,
+    ]
+  }
+];
+
+function initCodeCarousel() {
+  const codeTextEl = document.getElementById('code-text');
+  const lineNumsEl = document.getElementById('line-numbers');
+  const tabsEl     = document.getElementById('editor-tabs');
+  const dotsEl     = document.getElementById('carousel-dots');
+  const statusLang = document.getElementById('status-lang');
+
+  if (!codeTextEl || !lineNumsEl) return;
+
+  const tabs = tabsEl ? tabsEl.querySelectorAll('.editor-tab')  : [];
+  const dots = dotsEl ? dotsEl.querySelectorAll('.carousel-dot') : [];
+
+  let currentSlide = 0;
+  let timer        = null;
+
+  // --- Ajustes de tiempo (en ms) ---
+  const TYPE_CHAR_SPEED  = 28;   // Velocidad de tipeo por carácter
+  const TYPE_LINE_PAUSE  = 60;   // Pausa entre salto de líneas
+  const READ_PAUSE       = 3200; // Tiempo para contemplar el código escrito
+  const ERASE_LINE_SPEED = 40;   // Velocidad de borrado línea por línea (efecto Backspace)
+  const SWITCH_TAB_PAUSE = 350;  // Pausa antes de comenzar a escribir el nuevo slide
+
+  // ─── Renderizar números de línea dinámicamente ────────────────────────────
+  function renderLineNumbers(n) {
+    lineNumsEl.innerHTML = '';
+    for (let i = 1; i <= Math.max(1, n); i++) {
+      const s = document.createElement('span');
+      s.textContent = i;
+      lineNumsEl.appendChild(s);
+    }
+  }
+
+  // ─── Actualizar pestaña activa y badge de lenguaje ────────────────────────
+  function updateIndicators(idx) {
+    tabs.forEach((t, i) => t.classList.toggle('active', i === idx));
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    if (statusLang) {
+      const s = CODE_SLIDES[idx];
+      statusLang.innerHTML = `${s.langIcon} ${s.lang}`;
+    }
+  }
+
+  // ─── Indicador visual del Cursor ──────────────────────────────────────────
+  const cursorEl = document.getElementById('code-cursor');
+  function setCursorMode(mode) {
+    if (!cursorEl) return;
+    if (mode === 'erase') {
+      cursorEl.style.color = '#ff7b72'; // Color rojo/coral cuando borra
+    } else {
+      cursorEl.style.color = 'var(--accent-cyan)'; // Color cian neón al escribir
+    }
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // FASE 1: Escribir el código carácter a carácter
+  // ══════════════════════════════════════════════════════════════════════════
+  function typeSlide(idx, onDone) {
+    updateIndicators(idx);
+    setCursorMode('type');
+
+    const allLines = CODE_SLIDES[idx].lines;
+    let lineIdx    = 0;
+    let typedHTMLs = [];
+
+    renderLineNumbers(1);
+    codeTextEl.innerHTML = '';
+
+    function processNextLine() {
+      if (lineIdx >= allLines.length) {
+        // Código completamente escrito -> pausar para lectura
+        timer = setTimeout(onDone, READ_PAUSE);
+        return;
+      }
+
+      const fullHTML = allLines[lineIdx];
+      // Extraemos el texto plano de la línea actual para tipear carácter a carácter
+      const tmpDiv = document.createElement('div');
+      tmpDiv.innerHTML = fullHTML;
+      const plainText = tmpDiv.textContent || '';
+
+      let charIdx = 0;
+
+      function typeChar() {
+        charIdx++;
+
+        const isLineComplete = charIdx >= plainText.length;
+        const currentLineHTML = isLineComplete
+          ? fullHTML
+          : `<span class="tok-typing">${escapeHTML(plainText.slice(0, charIdx))}</span>`;
+
+        const displayLines = [...typedHTMLs, currentLineHTML];
+        codeTextEl.innerHTML = displayLines.join('\n');
+        renderLineNumbers(displayLines.length);
+
+        if (isLineComplete) {
+          typedHTMLs.push(fullHTML);
+          lineIdx++;
+          timer = setTimeout(processNextLine, TYPE_LINE_PAUSE + Math.random() * 20);
+        } else {
+          const jitter = Math.random() * 25;
+          timer = setTimeout(typeChar, TYPE_CHAR_SPEED + jitter);
+        }
+      }
+
+      typeChar();
+    }
+
+    processNextLine();
+  }
+
+  // Helper para escapar caracteres de HTML durante el tipeo
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // FASE 2: Borrar el código de abajo hacia arriba (efecto Backspace acelerado)
+  // ══════════════════════════════════════════════════════════════════════════
+  function eraseSlide(onDone) {
+    setCursorMode('erase');
+
+    const lines = codeTextEl.innerHTML.split('\n');
+    let currentCount = lines.length;
+
+    function eraseStep() {
+      if (currentCount <= 0) {
+        codeTextEl.innerHTML = '';
+        lineNumsEl.innerHTML = '';
+        timer = setTimeout(onDone, SWITCH_TAB_PAUSE);
+        return;
+      }
+
+      currentCount--;
+      lines.pop();
+      codeTextEl.innerHTML = lines.join('\n');
+      renderLineNumbers(lines.length);
+
+      const delay = ERASE_LINE_SPEED + Math.random() * 15;
+      timer = setTimeout(eraseStep, delay);
+    }
+
+    eraseStep();
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // CICLO CONTINUO (BUCLE INFINITO)
+  // Escribir -> Pausa -> Borrar -> Cambiar Slide -> Repetir
+  // ══════════════════════════════════════════════════════════════════════════
+  function runLoop(idx) {
+    clearTimeout(timer);
+    currentSlide = idx;
+
+    typeSlide(idx, () => {
+      eraseSlide(() => {
+        const nextSlide = (idx + 1) % CODE_SLIDES.length;
+        runLoop(nextSlide);
+      });
+    });
+  }
+
+  // ─── Control manual con pestañas o dots ───────────────────────────────────
+  function jumpToSlide(idx) {
+    clearTimeout(timer);
+    currentSlide = idx;
+    codeTextEl.innerHTML = '';
+    lineNumsEl.innerHTML = '';
+    timer = setTimeout(() => runLoop(idx), 100);
+  }
+
+  tabs.forEach((tab, i) => tab.addEventListener('click', () => jumpToSlide(i)));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => jumpToSlide(i)));
+
+  // ─── Iniciar bucle infinito ───────────────────────────────────────────────
+  runLoop(0);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* --------------------------------------------------------------------------
+     0. CODE CAROUSEL INITIALIZATION
+     -------------------------------------------------------------------------- */
+  initCodeCarousel();
 
   /* --------------------------------------------------------------------------
      1. THEME TOGGLE & LOGO SWAPPING LOGIC
