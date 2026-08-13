@@ -2084,11 +2084,31 @@ h1, h2, h3, h4, h5, h6 {
    17. RESPONSIVE BREAKPOINTS (MOBILE, TABLET, DESKTOP, TV)
    -------------------------------------------------------------------------- */
 
-/* Tablet & Mobile (< 1024px) */
+/* --------------------------------------------------------------------------
+   17. RESPONSIVE BREAKPOINTS OPTIMIZADOS (TV, DESKTOP, TABLET, MÓVIL, SMARTPHONE)
+   -------------------------------------------------------------------------- */
+
+/* Laptop & Tablet Grande (< 1024px) */
 @media (max-width: 1024px) {
+  .section-padding {
+    padding: 4.5rem 0;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
     text-align: center;
+  }
+
+  .badge-pill {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-description {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-actions {
@@ -2112,26 +2132,39 @@ h1, h2, h3, h4, h5, h6 {
 
   .footer-content {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
-/* Mobile Devices (< 768px) */
+/* Tablet & Móviles Medianos (< 768px) */
 @media (max-width: 768px) {
+  .section-padding {
+    padding: 3.5rem 0;
+  }
+
+  .max-width-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Menú de Navegación Móvil */
   .mobile-toggle {
     display: block;
   }
 
   .nav-menu {
     position: fixed;
-    top: 70px;
+    top: 68px;
     left: 0;
     width: 100%;
     background: var(--bg-nav);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem;
     transform: translateY(-150%);
     transition: transform var(--transition-normal);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
   .nav-menu.active {
@@ -2141,57 +2174,178 @@ h1, h2, h3, h4, h5, h6 {
   .nav-list {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .nav-link {
     padding: 0.75rem 1rem;
+    font-size: 1rem;
   }
 
   .nav-cta-btn {
     display: none;
   }
 
-  .adn-cards-grid,
-  .services-grid,
-  .portfolio-grid,
-  .valores-grid,
-  .calc-radio-group {
-    grid-template-columns: 1fr;
+  /* Hero Section Adaptativo */
+  .hero-title {
+    font-size: clamp(1.75rem, 6.5vw, 2.4rem);
+    line-height: 1.25;
+    margin-bottom: 1rem;
   }
 
-  .hero-stats {
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-actions {
     flex-direction: column;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* KPIs / Stats en Rejilla 2x2 para Ahorro de Espacio */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    padding-top: 1.25rem;
   }
 
   .stat-divider {
     display: none;
   }
 
+  .stat-card {
+    align-items: center;
+    background: var(--bg-card);
+    padding: 0.75rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  /* Editor de Código en Móvil */
+  .code-editor-card {
+    border-radius: var(--border-radius-md);
+  }
+
+  .editor-topbar {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .editor-tab {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  .editor-body {
+    min-height: 250px;
+    max-height: 290px;
+  }
+
+  .line-numbers {
+    padding: 0.75rem 0.4rem 0.75rem 0.6rem;
+    min-width: 2.2rem;
+    font-size: 0.72rem;
+  }
+
+  .code-display {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.75rem;
+  }
+
+  /* Grillas de 1 Columna en Móvil */
+  .adn-cards-grid,
+  .services-grid,
+  .portfolio-grid,
+  .valores-grid,
+  .calc-radio-group {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Filtros de Portafolio */
+  .portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  /* Cotizador de Presupuesto */
+  .calculator-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .quote-actions-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-whatsapp-quote,
+  .btn-email-quote {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Formulario de Contacto */
+  .contact-form-column {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .btn-submit-contact {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Línea de Tiempo / Proceso */
   .timeline-line {
-    left: 20px;
+    left: 18px;
   }
 
   .timeline-step {
-    padding-left: 55px;
+    padding-left: 50px;
   }
 
   .step-marker {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
   }
 
+  /* Footer */
   .footer-bottom-flex {
     flex-direction: column;
     text-align: center;
+    gap: 0.75rem;
   }
 
   /* Optimización para GPU de Dispositivos Móviles */
   .ambient-blur {
-    filter: blur(40px) !important;
-    opacity: 0.5;
+    filter: blur(35px) !important;
+    opacity: 0.4;
   }
 
   .glass-card {
@@ -2200,8 +2354,43 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .reveal-on-scroll {
-    transform: translate3d(0, 12px, 0);
-    transition-duration: 0.4s;
+    transform: translate3d(0, 10px, 0);
+    transition-duration: 0.35s;
+  }
+
+  /* Modal Adaptativo en Pantallas Pequeñas */
+  .modal-card {
+    padding: 1.5rem 1.25rem;
+    max-width: 94%;
+    max-height: 88vh;
+  }
+}
+
+/* Smartphones Pequeños (< 480px) */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .badge-pill {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-live-badge {
+    display: none; /* Ahorra espacio horizontal en pantallas muy angostas */
+  }
+
+  .code-display {
+    font-size: 0.7rem;
   }
 }
 
