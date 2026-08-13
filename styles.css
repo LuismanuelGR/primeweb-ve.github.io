@@ -836,6 +836,322 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
+   7.5. CODE EDITOR CAROUSEL - Elemento Principal de Presentación
+   -------------------------------------------------------------------------- */
+
+/* Animación de entrada del cursor parpadeante */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes slideInCode {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Tarjeta contenedora principal del editor */
+.code-editor-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-glow);
+  font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+.code-editor-card:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--accent-blue), 0 0 30px rgba(0, 102, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Barra superior: dots + tabs + live badge */
+.editor-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+  scrollbar-width: none;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.editor-topbar::-webkit-scrollbar { display: none; }
+
+/* Tabs de archivos */
+.editor-tabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-grow: 1;
+  overflow-x: auto;
+}
+
+.editor-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.editor-tab:hover {
+  color: var(--text-primary);
+  background: rgba(125, 125, 125, 0.1);
+}
+
+.editor-tab.active {
+  color: var(--text-primary);
+  background: rgba(125, 125, 125, 0.15);
+  border-bottom-color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* Live badge */
+.editor-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #10b981;
+  padding: 0.2rem 0.6rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--border-radius-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Cuerpo principal con números de línea y código */
+.editor-body {
+  display: flex;
+  align-items: stretch;
+  min-height: 320px;
+  max-height: 380px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.18);
+  transition: background 0.4s ease;
+}
+
+.line-numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 1rem 0.6rem 1rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.72;
+  user-select: none;
+  border-right: 1px solid var(--border-color);
+  min-width: 2.8rem;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.12);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.code-display {
+  flex-grow: 1;
+  padding: 1rem 1.25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.code-block {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  white-space: pre;
+  overflow: hidden;
+  line-height: 1.72;
+  animation: slideInCode 0.35s ease forwards;
+}
+
+#code-text {
+  display: inline;
+}
+
+/* Cursor parpadeante */
+.cursor-blink {
+  display: inline;
+  color: var(--accent-cyan);
+  font-weight: 100;
+  animation: blink 1s step-end infinite;
+  font-size: 1em;
+  line-height: 1;
+}
+
+/* Coloreado de Sintaxis por Defecto (Modo Oscuro) */
+.tok-tag     { color: #7ee787; }   /* < > etiquetas */
+.tok-attr    { color: #79c0ff; }   /* atributos */
+.tok-str     { color: #a5d6ff; }   /* strings en HTML */
+.tok-val     { color: #ff9d6e; }   /* valores numéricos */
+.tok-comment { color: #6e7681; font-style: italic; }
+
+/* Coloreado CSS */
+.tok-selector  { color: #7ee787; }
+.tok-property  { color: #79c0ff; }
+.tok-css-value { color: #a5d6ff; }
+.tok-unit      { color: #ff9d6e; }
+
+/* Coloreado JS */
+.tok-keyword  { color: #ff7b72; }  /* const, let, if, return */
+.tok-fn       { color: #d2a8ff; }  /* funciones */
+.tok-js-str   { color: #a5d6ff; }  /* strings JS */
+.tok-num      { color: #ff9d6e; }  /* números */
+.tok-punct    { color: #e6edf3; }  /* . ; () {} */
+.tok-var      { color: #ffa657; }  /* variables */
+.tok-typing   { color: #e6edf3; }  /* texto en tipeo */
+
+/* Barra de estado inferior */
+.editor-statusbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.4rem 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-top: 1px solid var(--border-color);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  overflow-x: auto;
+  scrollbar-width: none;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.editor-statusbar::-webkit-scrollbar { display: none; }
+
+.status-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+/* Indicadores de carrusel (dots) */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--border-color);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  opacity: 0.3;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--accent-blue);
+  opacity: 1;
+  width: 22px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px var(--accent-blue);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MODO CLARO (LIGHT MODE) - Estilos Específicos para el Editor de Código
+   ══════════════════════════════════════════════════════════════════════════ */
+[data-theme="light"] .code-editor-card {
+  background: #ffffff;
+  border-color: rgba(0, 51, 102, 0.15);
+  box-shadow: 0 15px 45px rgba(0, 51, 102, 0.1), 0 0 0 1px rgba(0, 102, 255, 0.08);
+}
+
+[data-theme="light"] .code-editor-card:hover {
+  box-shadow: 0 20px 55px rgba(0, 51, 102, 0.16), 0 0 0 1px var(--accent-blue);
+}
+
+[data-theme="light"] .editor-topbar,
+[data-theme="light"] .editor-statusbar {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+[data-theme="light"] .editor-tab {
+  color: #64748b;
+}
+
+[data-theme="light"] .editor-tab:hover {
+  color: #0f172a;
+  background: #e2e8f0;
+}
+
+[data-theme="light"] .editor-tab.active {
+  color: #0f172a;
+  background: #ffffff;
+  border-bottom-color: var(--accent-blue);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .editor-body {
+  background: #ffffff;
+}
+
+[data-theme="light"] .line-numbers {
+  background: #f8fafc;
+  border-right-color: #e2e8f0;
+  color: #94a3b8;
+}
+
+[data-theme="light"] .carousel-dots {
+  background: #f8fafc;
+  border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .carousel-dot {
+  background: #94a3b8;
+}
+
+[data-theme="light"] .carousel-dot.active {
+  background: var(--accent-blue);
+}
+
+/* Coloreado de Sintaxis para Modo Claro (High Contrast VS-Code Light) */
+[data-theme="light"] .tok-tag     { color: #059669; font-weight: 600; }  /* Etiquetas HTML verde esmeralda */
+[data-theme="light"] .tok-attr    { color: #0284c7; }                    /* Atributos azul brillante */
+[data-theme="light"] .tok-str     { color: #2563eb; }                    /* Strings azul real */
+[data-theme="light"] .tok-val     { color: #d97706; }                    /* Valores ámbar */
+[data-theme="light"] .tok-comment { color: #94a3b8; font-style: italic; } /* Comentarios gris pizarra */
+
+[data-theme="light"] .tok-selector  { color: #059669; font-weight: 600; }
+[data-theme="light"] .tok-property  { color: #0284c7; }
+[data-theme="light"] .tok-css-value { color: #2563eb; }
+[data-theme="light"] .tok-unit      { color: #d97706; }
+
+[data-theme="light"] .tok-keyword  { color: #dc2626; font-weight: 600; }  /* Palabras clave rojo */
+[data-theme="light"] .tok-fn       { color: #7c3aed; font-weight: 600; }  /* Funciones morado */
+[data-theme="light"] .tok-js-str   { color: #2563eb; }
+[data-theme="light"] .tok-num      { color: #d97706; }
+[data-theme="light"] .tok-punct    { color: #1e293b; }                    /* Puntuación azul muy oscuro */
+[data-theme="light"] .tok-var      { color: #ea580c; }                    /* Variables naranja */
+[data-theme="light"] .tok-typing   { color: #0f172a; }                    /* Texto en tipeo */
+
+/* --------------------------------------------------------------------------
    8. ADN Y VALORES DE MARCA
    -------------------------------------------------------------------------- */
 .adn-cards-grid {
