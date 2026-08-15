@@ -79,7 +79,6 @@
           <li><a href="#servicios" class="nav-link"><i class="fa-solid fa-layer-group"></i> Servicios</a></li>
           <li><a href="#metodologia" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Metodología</a></li>
           <li><a href="#portafolio" class="nav-link"><i class="fa-solid fa-briefcase"></i> Portafolio</a></li>
-          <li><a href="#cotizador" class="nav-link"><i class="fa-solid fa-calculator"></i> Cotizador</a></li>
           <li><a href="#contacto" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contacto</a></li>
         </ul>
       </nav>
@@ -132,10 +131,6 @@
             <a href="#portafolio" class="btn btn-primary btn-lg">
               <span>Explorar Proyectos</span>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-            <a href="#cotizador" class="btn btn-glass btn-lg">
-              <i class="fa-solid fa-calculator"></i>
-              <span>Cotizar Proyecto</span>
             </a>
           </div>
 
@@ -810,160 +805,6 @@
       </div>
     </section>
 
-    <!-- COTIZADOR INTERACTIVO DE PROYECTOS -->
-    <section id="cotizador" class="section-padding bg-section-alt">
-      <div class="max-width-container">
-        <div class="section-header text-center">
-          <span class="section-subtitle">Planifica Tu Inversión</span>
-          <h2 class="section-title">Cotizador Interactivo de <span class="gradient-text">Proyectos</span></h2>
-          <p class="section-description">
-            Selecciona las características de tu proyecto para obtener una estimación aproximada en tiempo real y enviar
-            la solicitud a nuestro equipo.
-          </p>
-        </div>
-
-        <div class="calculator-wrapper glass-card">
-          <div class="calculator-grid">
-            <div class="calculator-options">
-
-              <!-- Option 1: Tipo de Proyecto -->
-              <div class="calc-group">
-                <label class="calc-label"><i class="fa-solid fa-code-branch text-accent"></i> 1. Tipo de Proyecto
-                  Web</label>
-                <div class="calc-radio-group">
-                  <label class="calc-radio-card active">
-                    <input type="radio" name="project-type" value="landing" data-price="250" data-time="5 - 7 días"
-                      checked>
-                    <div class="radio-content">
-                      <i class="fa-solid fa-rocket"></i>
-                      <strong>Landing Page</strong>
-                      <small>Página única de alta conversión</small>
-                    </div>
-                  </label>
-
-                  <label class="calc-radio-card">
-                    <input type="radio" name="project-type" value="corporate" data-price="450" data-time="10 - 15 días">
-                    <div class="radio-content">
-                      <i class="fa-solid fa-building"></i>
-                      <strong>Web Corporativa</strong>
-                      <small>Multipágina profesional completa</small>
-                    </div>
-                  </label>
-
-                  <label class="calc-radio-card">
-                    <input type="radio" name="project-type" value="ecommerce" data-price="700" data-time="15 - 25 días">
-                    <div class="radio-content">
-                      <i class="fa-solid fa-cart-shopping"></i>
-                      <strong>Tienda Online</strong>
-                      <small>E-Commerce con catálogo y pagos</small>
-                    </div>
-                  </label>
-
-                  <label class="calc-radio-card">
-                    <input type="radio" name="project-type" value="custom" data-price="950" data-time="20 - 30+ días">
-                    <div class="radio-content">
-                      <i class="fa-solid fa-gears"></i>
-                      <strong>Sistema a Medida</strong>
-                      <small>Plataforma SaaS o portal privado</small>
-                    </div>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Option 2: Addons / Servicios Adicionales -->
-              <div class="calc-group margin-top-md">
-                <label class="calc-label"><i class="fa-solid fa-shield-halved text-accent"></i> 2. Servicios Adicionales
-                  y Mantenimiento</label>
-                <div class="calc-checkbox-group">
-                  <label class="calc-checkbox-card">
-                    <input type="checkbox" id="addon-seo" data-price="120" checked>
-                    <div class="checkbox-content">
-                      <span><i class="fa-solid fa-chart-line text-accent"></i> Optimización SEO & Velocidad</span>
-                      <strong>+$120 USD</strong>
-                    </div>
-                  </label>
-
-                  <label class="calc-checkbox-card">
-                    <input type="checkbox" id="addon-support" data-price="150" checked>
-                    <div class="checkbox-content">
-                      <span><i class="fa-solid fa-headset text-accent"></i> Soporte Continuo & Mantenimiento (3
-                        meses)</span>
-                      <strong>+$150 USD</strong>
-                    </div>
-                  </label>
-
-                  <label class="calc-checkbox-card">
-                    <input type="checkbox" id="addon-security" data-price="90">
-                    <div class="checkbox-content">
-                      <span><i class="fa-solid fa-lock text-accent"></i> Certificado SSL & Blindaje de Seguridad</span>
-                      <strong>+$90 USD</strong>
-                    </div>
-                  </label>
-
-                  <label class="calc-checkbox-card">
-                    <input type="checkbox" id="addon-lang" data-price="100">
-                    <div class="checkbox-content">
-                      <span><i class="fa-solid fa-language text-accent"></i> Sistema Multilenguaje (Español /
-                        Inglés)</span>
-                      <strong>+$100 USD</strong>
-                    </div>
-                  </label>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Summary Box -->
-            <div class="calculator-summary glass-card">
-              <h3>Resumen de Cotización</h3>
-              <div class="summary-divider"></div>
-
-              <div class="summary-details">
-                <div class="summary-row">
-                  <span>Tipo de Proyecto:</span>
-                  <strong id="sum-project-name">Landing Page</strong>
-                </div>
-                <div class="summary-row">
-                  <span>Tiempo estimado:</span>
-                  <strong id="sum-project-time">5 - 7 días</strong>
-                </div>
-                <div class="summary-row">
-                  <span>Supervisión Técnica:</span>
-                  <strong class="text-accent">Incluida</strong>
-                </div>
-                <div class="summary-row">
-                  <span>Código Limpio & A Medida:</span>
-                  <strong class="text-accent">100% Garantizado</strong>
-                </div>
-              </div>
-
-              <div class="summary-divider"></div>
-
-              <div class="summary-total">
-                <span>Inversión Estimada:</span>
-                <div class="total-price-box">
-                  <span class="price-currency">$</span>
-                  <span id="calc-total-price" class="price-value">520</span>
-                  <span class="price-code">USD</span>
-                </div>
-                <small class="total-note">*Precio referencial adaptado según requerimientos finales</small>
-              </div>
-
-              <div class="summary-actions">
-                <button id="send-whatsapp-btn" class="btn btn-whatsapp-quote btn-block">
-                  <i class="fa-brands fa-whatsapp"></i>
-                  <span>Enviar Cotización a WhatsApp</span>
-                </button>
-                <a href="#contacto" class="btn btn-email-quote btn-block">
-                  <i class="fa-solid fa-envelope"></i>
-                  <span>Solicitar Propuesta por Email</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- PREGUNTAS FRECUENTES (FAQ) -->
     <section class="section-padding">
